@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <ChameleonLogo />
-      <div className=""><strong>image</strong> search</div>
+      <h1 className="title"><span>image</span> search</h1>
     </div>
     
   );
