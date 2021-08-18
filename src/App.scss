@@ -1,3 +1,8 @@
+:root {
+    --clr-neutral-100: #FFFFFF;
+    --clr-neutral-900: #050417;
+}
+
 *,
 *::before,
 *::after {
@@ -8,10 +13,12 @@ html {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     font-size: 0.875rem;
+    height: 100%;
 }
 
 body {
     margin: 0;
+    height: 100%;
 }
 
 img {
@@ -20,11 +27,19 @@ img {
 
 /* Typography */
 
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
 h1 {
     font-size: 2.25rem;
     font-weight: 300;
-
+    color: var(--clr-neutral-100);
+    margin-top: 0.875rem;
+    
     span {
         font-weight: 700;
     }
-}
+} 
