@@ -1,28 +1,33 @@
 :root {
-    --clr-neutral-100: #FFFFFF;
-    --clr-neutral-900: #050417;
+	--clr-neutral-100: #ffffff;
+	--clr-neutral-200: #f3f3f3;
+	--clr-neutral-300: #d5d7e5;
+	--clr-neutral-900: #050417;
+
+	--clr-accent-400: #37389e;
+	--clr-accent-500: #2a2b8d;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 html {
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.875rem;
-    height: 100%;
+	box-sizing: border-box;
+	font-family: "Open Sans", sans-serif;
+	font-size: 0.875rem;
+	height: 100%;
 }
 
 body {
-    margin: 0;
-    height: 100%;
+	margin: 0;
+	height: 100%;
 }
 
 img {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 /* Typography */
@@ -30,16 +35,57 @@ img {
 h1,
 h2,
 h3 {
-    margin: 0;
+	margin: 0;
 }
 
 h1 {
-    font-size: 2.25rem;
-    font-weight: 300;
-    color: var(--clr-neutral-100);
-    margin-top: 0.875rem;
-    
-    span {
-        font-weight: 700;
-    }
-} 
+	font-size: 2.25rem;
+	font-weight: 300;
+	color: var(--clr-neutral-100);
+	margin-top: 0.875em;
+	cursor: default;
+
+	span {
+		font-weight: 700;
+	}
+}
+
+/* buttons */
+
+.btn {
+	padding: 1.063em 5.5em 0.813em 5.875em;
+	margin-top: 5.75em;
+	border-radius: 25px;
+	color: var(--clr-neutral-100);
+	font-family: inherit;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	border: none;
+	transition: all 0.2s ease-in-out;
+
+	&:hover,
+	:focus {
+		transform: scale(1.1);
+		background-color: var(--clr-accent-400);
+	}
+}
+
+.btn-primary {
+	background-color: var(--clr-accent-500);
+}
+
+/* inputs */
+
+.form-text {
+	all: unset;
+	width: clamp(18rem, 60vw, 25rem);
+	background-color: var(--clr-neutral-100);
+	font-weight: 600;
+	padding: 0.938em 1.25em;
+	border-radius: 4px;
+
+	&::placeholder {
+		color: var(--clr-neutral-300);
+	}
+}
