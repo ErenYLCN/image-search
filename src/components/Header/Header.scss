@@ -1,0 +1,20 @@
+.header {
+	width: 100%;
+	background-color: var(--clr-neutral-900);
+
+	.header-content {
+		padding: 1.5625em 6.625em 1.5625em 3.125em;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		.form-fields {
+			display: flex;
+			align-items: center;
+			column-gap: 2em;
+			flex-wrap: wrap;
+			row-gap: 1em;
+		}
+	}
+}

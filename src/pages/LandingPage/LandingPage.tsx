@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { ChameleonLogo } from "../../components/ChameleonLogo/ChameleonLogo";
 import { Dropdown } from "../../components/Dropdown/Dropdown";
 import "./LandingPage.scss";
+import { useHistory } from "react-router-dom";
 
 export const LandingPage = () => {
+	const history = useHistory();
 	const [collection, setCollection] = useState<string>("Collections");
+	const [query, setQuery] = useState("");
+	console.log(process.env);
 
 	return (
 		<div className="landing">
@@ -14,9 +18,20 @@ export const LandingPage = () => {
 					<span>image</span> search
 				</h1>
 				<div className="form">
-					<input className="form-text" placeholder="Query" />
-					<Dropdown collection={collection} setCollection={setCollection} />
-					<button className="btn btn-primary">Search</button>
+					<input
+						className="form-text"
+						placeholder="Query"
+						onChange={(e) => setQuery(e.target.value)}
+					/>
+					<div className="dropdown-margin">
+						<Dropdown collection={collection} setCollection={setCollection} />
+					</div>
+					<button
+						className="btn btn-primary btn-margin"
+						onClick={() => history.push(`/images/${query}/${collection}`)}
+					>
+						Search
+					</button>
 				</div>
 			</div>
 		</div>

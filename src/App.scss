@@ -54,7 +54,6 @@ h1 {
 
 .btn {
 	padding: 1.063em 5.5em 0.813em 5.875em;
-	margin-top: 5.75em;
 	border-radius: 25px;
 	color: var(--clr-neutral-100);
 	font-family: inherit;
@@ -75,11 +74,15 @@ h1 {
 	background-color: var(--clr-accent-500);
 }
 
+.btn-margin {
+	margin-top: 5.75em;
+}
+
 /* inputs */
 
 .form-text {
 	all: unset;
-	width: clamp(18rem, 60vw, 25rem);
+	width: 21.35rem;
 	background-color: var(--clr-neutral-100);
 	font-weight: 600;
 	padding: 0.938em 1.25em;

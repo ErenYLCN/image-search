@@ -1,8 +1,22 @@
 .dropdown {
-	width: 100%;
-	margin-top: 1.313em;
+	width: 24rem;
 	font-weight: 600;
 	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		color: white;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		width: 96%;
+		height: 4px;
+		margin-top: 2px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		background-color: var(--clr-neutral-300);
+	}
 
 	.dropdown-btn {
 		background-color: var(--clr-neutral-100);
@@ -40,4 +54,8 @@
 			}
 		}
 	}
+}
+
+.dropdown-margin {
+	margin-top: 1.313em;
 }

@@ -1,17 +1,24 @@
-import React from 'react';
-import './App.scss';
-import { ChameleonLogo } from './components/ChameleonLogo/ChameleonLogo';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { LandingPage } from './pages/LandingPage/LandingPage'
+import React from "react";
+import "./App.scss";
+import { LandingPage } from "./pages/LandingPage/LandingPage";
+import { ImagesPage } from "./pages/ImagesPage/ImagesPage";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	useHistory,
+} from "react-router-dom";
 
 function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" component={LandingPage} />
-      </Switch>
-    </Router>
-  );
+	return (
+		<Router>
+			<Switch>
+				<Route exact path="/" component={LandingPage} />
+				<Route exact path="/images/:query/:category" component={ImagesPage} />
+				<Route path="/" render={() => <div>404</div>} />
+			</Switch>
+		</Router>
+	);
 }
 
 export default App;
