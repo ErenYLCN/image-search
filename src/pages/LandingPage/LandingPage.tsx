@@ -8,7 +8,6 @@ export const LandingPage = () => {
 	const history = useHistory();
 	const [collection, setCollection] = useState<string>("Collections");
 	const [query, setQuery] = useState("");
-	console.log(process.env);
 
 	return (
 		<div className="landing">
@@ -28,7 +27,13 @@ export const LandingPage = () => {
 					</div>
 					<button
 						className="btn btn-primary btn-margin"
-						onClick={() => history.push(`/images/${query}/${collection}`)}
+						onClick={() =>
+							history.push(
+								`/images/${query}/${
+									collection == "Collections" ? "All" : collection
+								}`
+							)
+						}
 					>
 						Search
 					</button>

@@ -48,6 +48,7 @@ export const Dropdown = ({ collection, setCollection }: Props) => {
 								setCollection((e.target as HTMLButtonElement).innerText);
 								setIsActive(false);
 							}}
+							key={collection}
 						>
 							{collection}
 						</div>

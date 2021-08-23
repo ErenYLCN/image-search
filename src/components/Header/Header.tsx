@@ -23,7 +23,13 @@ export const Header = () => {
 				</div>
 				<button
 					className="btn btn-primary"
-					onClick={() => history.push(`/images/${query}/${collection}`)}
+					onClick={() =>
+						history.push(
+							`/images/${query}/${
+								collection == "Collections" ? "Featured" : collection
+							}`
+						)
+					}
 				>
 					Search
 				</button>
