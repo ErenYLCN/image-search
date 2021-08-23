@@ -33,6 +33,9 @@
 		top: 94%;
 		width: 100%;
 		z-index: 10;
+		visibility: hidden;
+		opacity: 0;
+		transition: all ease-in-out 0.2s;
 
 		.dropdown-item {
 			background-color: var(--clr-neutral-100);
@@ -54,8 +57,14 @@
 			}
 		}
 	}
+	.show {
+		visibility: visible;
+		opacity: 1;
+		height: auto;
+	}
 }
 
 .dropdown-margin {
 	margin-top: 1.313em;
 }
+

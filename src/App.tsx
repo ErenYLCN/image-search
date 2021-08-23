@@ -6,7 +6,6 @@ import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
-	useHistory,
 } from "react-router-dom";
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
 		<Router>
 			<Switch>
 				<Route exact path="/" component={LandingPage} />
-				<Route exact path="/images/:query/:category" component={ImagesPage} />
+				<Route exact path="/images/:query/:collection" component={ImagesPage} />
 				<Route path="/" render={() => <div>404</div>} />
 			</Switch>
 		</Router>

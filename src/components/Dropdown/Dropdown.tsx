@@ -39,23 +39,21 @@ export const Dropdown = ({ collection, setCollection }: Props) => {
 				<span>{collection}</span>
 				<img src={chevronDown} alt="chevron-down" className="chevron-down" />
 			</div>
-			{isActive && (
-				<div className="dropdown-content">
-					{collections.map((collection) => {
-						return (
-							<div
-								className="dropdown-item"
-								onClick={(e) => {
-									setCollection((e.target as HTMLButtonElement).innerText);
-									setIsActive(false);
-								}}
-							>
-								{collection}
-							</div>
-						);
-					})}
-				</div>
-			)}
+			<div className={isActive ? "dropdown-content show" : "dropdown-content"}>
+				{collections.map((collection) => {
+					return (
+						<div
+							className="dropdown-item"
+							onClick={(e) => {
+								setCollection((e.target as HTMLButtonElement).innerText);
+								setIsActive(false);
+							}}
+						>
+							{collection}
+						</div>
+					);
+				})}
+			</div>
 		</div>
 	);
 };
