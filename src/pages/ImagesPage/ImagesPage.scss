@@ -1,23 +1,21 @@
 .images-page-content {
 	padding: 11.325em 1em;
-	display: grid;
-	grid-template-columns: 100%;
-	gap: 20px;
-	// grid-auto-rows: auto;
+	// grid-template-columns: 100%;
+	// gap: 20px;
+	// grid-auto-rows: 9px;
 }
 
 @media (min-width: 650px) {
 	.images-page-content {
 		padding: 11.325em 3em;
-		justify-content: center;
-		grid-template-columns: 1fr 1fr;
 	}
 }
 
 @media (min-width: 980px) {
 	.images-page-content {
-		padding: 11.325em 15.625em;
-		grid-template-columns: 300px 300px 300px;
+		padding: 11.325em 0;
+		width: 970px;
+		margin: auto;
 	}
 }
 
@@ -42,4 +40,23 @@
 	padding-top: 30vh;
 	display: flex;
 	justify-content: center;
+}
+
+.my-masonry-grid {
+	display: -webkit-box; /* Not needed if autoprefixing */
+	display: -ms-flexbox; /* Not needed if autoprefixing */
+	display: flex;
+	justify-content: space-evenly;
+	margin-left: -30px; /* gutter size offset */
+	width: auto;
+}
+.my-masonry-grid_column {
+	padding-left: 30px; /* gutter size */
+	background-clip: padding-box;
+}
+.my-masonry-grid_column > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 1.125em;
 }

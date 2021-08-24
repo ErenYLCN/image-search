@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { fetchImages } from "../../API/api";
-import "./ImagesPage.scss";
 import { Modal } from "../../components/Modal/Modal";
 import { Spinner } from "../../components/Spinner/Spinner";
+import Masonry from "react-masonry-css";
+import "./ImagesPage.scss";
 
 interface Props
 	extends RouteComponentProps<{ query: string; collection: string }> {}
@@ -32,6 +33,12 @@ export const ImagesPage: React.FC<Props> = ({ match }) => {
 		fetchData();
 	}, [match.params.query, match.params.collection]);
 
+	const breakpointColumnsObj = {
+		default: 3,
+		980: 2,
+		500: 1,
+	};
+
 	return (
 		<div className="images-page">
 			<Header />
@@ -44,22 +51,29 @@ export const ImagesPage: React.FC<Props> = ({ match }) => {
 
 			{!isLoading && (
 				<div className="images-page-content">
-					{images.map((image: any) => {
-						return (
-							<div
-								className="image-container"
-								onClick={() => {
-									setChosenImage(image);
-									setModalOpen(true);
-								}}
-								key={image.id}
-							>
-								<img src={image.urls.small} alt={image["alt_description"]} />
-							</div>
-						);
-					})}
+					<Masonry
+						breakpointCols={breakpointColumnsObj}
+						className="my-masonry-grid"
+						columnClassName="my-masonry-grid_column"
+					>
+						{images.map((image: any) => {
+							return (
+								<div
+									className="image-container"
+									onClick={() => {
+										setChosenImage(image);
+										setModalOpen(true);
+									}}
+									key={image.id}
+								>
+									<img src={image.urls.small} alt={image["alt_description"]} />
+								</div>
+							);
+						})}
+					</Masonry>
 				</div>
 			)}
+
 			{chosenImage && (
 				<Modal open={modalOpen} setOpen={setModalOpen} image={chosenImage} />
 			)}

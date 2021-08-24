@@ -15,6 +15,5 @@ export const fetchImages = async (query: string, collection: string) => {
 		`https://api.unsplash.com/search/photos?client_id=${process.env.REACT_APP_API_KEY}&query=${query}+${collection}&page=1&per_page=30&collections=${collectionString}`
 	);
 
-	console.log(data);
 	return data;
 };
