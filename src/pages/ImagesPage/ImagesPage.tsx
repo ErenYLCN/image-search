@@ -3,6 +3,8 @@ import { RouteComponentProps } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { fetchImages } from "../../API/api";
 import "./ImagesPage.scss";
+import { Modal } from "../../components/Modal/Modal";
+import { Spinner } from "../../components/Spinner/Spinner";
 
 interface Props
 	extends RouteComponentProps<{ query: string; collection: string }> {}
@@ -10,6 +12,8 @@ interface Props
 export const ImagesPage: React.FC<Props> = ({ match }) => {
 	const [images, setImages] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [modalOpen, setModalOpen] = useState(true);
+	const [chosenImage, setChosenImage] = useState(undefined);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -31,18 +35,33 @@ export const ImagesPage: React.FC<Props> = ({ match }) => {
 	return (
 		<div className="images-page">
 			<Header />
-			{isLoading && <div className="loading"> Loading </div>}
+
+			{isLoading && (
+				<div className="loading">
+					<Spinner />
+				</div>
+			)}
 
 			{!isLoading && (
 				<div className="images-page-content">
 					{images.map((image: any) => {
 						return (
-							<div className="image-container" onClick={() => alert("hello")}>
-								<img src={image.urls.full} />
+							<div
+								className="image-container"
+								onClick={() => {
+									setChosenImage(image);
+									setModalOpen(true);
+								}}
+								key={image.id}
+							>
+								<img src={image.urls.small} alt={image["alt_description"]} />
 							</div>
 						);
 					})}
 				</div>
+			)}
+			{chosenImage && (
+				<Modal open={modalOpen} setOpen={setModalOpen} image={chosenImage} />
 			)}
 		</div>
 	);

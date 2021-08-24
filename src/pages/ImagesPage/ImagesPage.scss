@@ -32,7 +32,14 @@
 	&:hover {
 		transform: scale(1.04);
 		img {
-			box-shadow: 0 0 15px var(--clr-neutral-900);
+			box-shadow: 0 0 15px #ccc;
 		}
 	}
+}
+
+.loading {
+	color: black;
+	padding-top: 30vh;
+	display: flex;
+	justify-content: center;
 }
