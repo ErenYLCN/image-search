@@ -22,6 +22,7 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			max-height: 80vh;
 
 			img {
 				max-height: 65vh;
@@ -35,7 +36,6 @@
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
-					flex-wrap: wrap;
 					row-gap: 1em;
 
 					.user-info {
@@ -43,6 +43,7 @@
 						align-items: center;
 
 						.profile-pic {
+							width: clamp(3.75rem, 10vw, 4.275rem);
 							margin-right: 1.25rem;
 							border-radius: 100px;
 							cursor: pointer;
@@ -50,12 +51,12 @@
 
 						.user-name {
 							font-weight: 700;
-							font-size: 30px;
+							font-size: clamp(1.4rem, 4vw, 1.875rem);
 							color: black;
 						}
 						.social-name {
 							font-weight: 700;
-							font-size: 20px;
+							font-size: clamp(1rem, 3vw, 1.25rem);
 							color: var(--clr-accent-500);
 							cursor: pointer;
 
@@ -80,13 +81,19 @@
 						transition: all 0.2s ease-in-out;
 						cursor: pointer;
 
-						.download-icon {
-							fill: white;
-						}
-
 						&:hover {
 							color: white;
 							background: var(--clr-accent-500);
+						}
+					}
+					@media (max-width: 550px) {
+						.download-btn {
+							padding: 1em;
+							column-gap: 0;
+
+							span {
+								display: none;
+							}
 						}
 					}
 				}

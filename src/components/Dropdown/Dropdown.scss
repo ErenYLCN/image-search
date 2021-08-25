@@ -1,5 +1,5 @@
 .dropdown {
-	width: 24rem;
+	width: clamp(16rem, 75vw, 24rem);
 	font-weight: 600;
 	position: relative;
 
@@ -67,4 +67,3 @@
 .dropdown-margin {
 	margin-top: 1.313em;
 }
-

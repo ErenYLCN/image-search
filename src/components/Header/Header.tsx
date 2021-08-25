@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ChameleonLogo } from "../ChameleonLogo/ChameleonLogo";
 import { Dropdown } from "../Dropdown/Dropdown";
+import searchIcon from "../../assets/search-icon.svg";
 import "./Header.scss";
 
 export const Header = () => {
@@ -12,7 +13,9 @@ export const Header = () => {
 	return (
 		<div className="header">
 			<div className="header-content">
-				<ChameleonLogo />
+				<div className="header-logo">
+					<ChameleonLogo />
+				</div>
 				<div className="form-fields">
 					<input
 						className="form-text"
@@ -22,7 +25,7 @@ export const Header = () => {
 					<Dropdown collection={collection} setCollection={setCollection} />
 				</div>
 				<button
-					className="btn btn-primary"
+					className="btn btn-primary btn-shrink"
 					onClick={() =>
 						history.push(
 							`/images/${query}/${
@@ -31,7 +34,8 @@ export const Header = () => {
 						)
 					}
 				>
-					Search
+					<img src={searchIcon} alt="search icon" className="search-icon" />
+					<span className="search-text">Search</span>
 				</button>
 			</div>
 		</div>

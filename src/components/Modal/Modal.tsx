@@ -88,7 +88,9 @@ export const Modal = ({ open, setOpen, image }: Props) => {
 									</div>
 									<button className="download-btn">
 										<DownloadIcon />
-										<div>Download</div>
+										<div>
+											<span className="download">Download</span>
+										</div>
 									</button>
 								</div>
 							</div>

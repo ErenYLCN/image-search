@@ -82,7 +82,8 @@ h1 {
 
 .form-text {
 	all: unset;
-	width: 21.35rem;
+	box-sizing: border-box;
+	width: clamp(16rem, 75vw, 24rem);
 	background-color: var(--clr-neutral-100);
 	font-weight: 600;
 	padding: 0.938em 1.25em;
