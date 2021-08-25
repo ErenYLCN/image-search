@@ -1,19 +1,23 @@
 .images-page-content {
-	padding: 11.325em 1em;
-	// grid-template-columns: 100%;
-	// gap: 20px;
-	// grid-auto-rows: 9px;
+	padding: 11.325em 1em 0 1em;
+
+	.pagination-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 3em;
+	}
 }
 
 @media (min-width: 650px) {
 	.images-page-content {
-		padding: 11.325em 3em;
+		padding: 11.325em 0 0 0;
 	}
 }
 
 @media (min-width: 980px) {
 	.images-page-content {
-		padding: 11.325em 0;
+		padding: 11.325em 0 0 0;
 		width: 970px;
 		margin: auto;
 	}
@@ -27,7 +31,8 @@
 		transition: all 0.2s ease-in-out;
 	}
 
-	&:hover {
+	&:hover,
+	:focus {
 		transform: scale(1.04);
 		img {
 			box-shadow: 0 0 15px #ccc;

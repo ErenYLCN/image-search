@@ -1,6 +1,10 @@
 import axios from "axios";
 
-export const fetchImages = async (query: string, collection: string) => {
+export const fetchImages = async (
+	query: string,
+	collection: string,
+	pageNumber: string
+) => {
 	const collections = await axios.get(
 		`https://api.unsplash.com/search/collections?client_id=${process.env.REACT_APP_API_KEY}&query=${query}+${collection}&per_page=30`
 	);
@@ -12,7 +16,7 @@ export const fetchImages = async (query: string, collection: string) => {
 	});
 
 	const { data } = await axios.get(
-		`https://api.unsplash.com/search/photos?client_id=${process.env.REACT_APP_API_KEY}&query=${query}+${collection}&page=1&per_page=30&collections=${collectionString}`
+		`https://api.unsplash.com/search/photos?client_id=${process.env.REACT_APP_API_KEY}&query=${query}+${collection}&page=${pageNumber}&per_page=30&collections=${collectionString}`
 	);
 
 	return data;

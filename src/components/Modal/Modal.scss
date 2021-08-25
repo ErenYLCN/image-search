@@ -60,7 +60,8 @@
 							color: var(--clr-accent-500);
 							cursor: pointer;
 
-							&:hover {
+							&:hover,
+							:focus {
 								text-decoration: underline;
 							}
 						}
@@ -81,14 +82,15 @@
 						transition: all 0.2s ease-in-out;
 						cursor: pointer;
 
-						&:hover {
+						&:hover,
+						:focus {
 							color: white;
 							background: var(--clr-accent-500);
 						}
 					}
 					@media (max-width: 550px) {
 						.download-btn {
-							padding: 1em;
+							padding: 0.6em;
 							column-gap: 0;
 
 							span {

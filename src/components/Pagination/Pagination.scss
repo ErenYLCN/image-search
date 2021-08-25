@@ -1,0 +1,36 @@
+.pagination-content {
+	display: flex;
+	align-items: center;
+	column-gap: 1em;
+
+	.pagination-button {
+		padding: 0.75em 0;
+		width: 6.813rem;
+		border: 2px solid var(--clr-neutral-300);
+		background: white;
+		color: var(--clr-accent-500);
+		border-radius: 2px;
+		font-family: "Open Sans", sans-serif;
+		font-size: 0.875rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.1s ease-in-out;
+
+		&:hover,
+		:focus {
+			background: var(--clr-accent-500);
+			color: white;
+		}
+
+		&:disabled {
+			pointer-events: none;
+			opacity: 0.6;
+		}
+	}
+
+	.pagination-number {
+		white-space: nowrap;
+		font-size: 1.125rem;
+		font-weight: 600;
+	}
+}

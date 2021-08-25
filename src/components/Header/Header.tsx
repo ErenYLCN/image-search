@@ -30,7 +30,7 @@ export const Header = () => {
 						history.push(
 							`/images/${query}/${
 								collection == "Collections" ? "Featured" : collection
-							}`
+							}/1`
 						)
 					}
 				>

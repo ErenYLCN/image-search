@@ -30,8 +30,8 @@ export const LandingPage = () => {
 						onClick={() =>
 							history.push(
 								`/images/${query}/${
-									collection == "Collections" ? "All" : collection
-								}`
+									collection == "Collections" ? "Featured" : collection
+								}/1`
 							)
 						}
 					>

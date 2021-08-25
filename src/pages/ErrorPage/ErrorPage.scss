@@ -1,0 +1,16 @@
+.error-content {
+	padding-top: 11rem;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.error {
+		width: 58.75rem;
+		max-width: 95%;
+		padding: 1.5em 0 1.5em 2em;
+		background: var(--clr-error-400);
+		color: var(--clr-error-600);
+		font-weight: 600;
+	}
+}

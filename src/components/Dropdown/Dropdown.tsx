@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Dropdown.scss";
 import chevronDown from "../../assets/chevron-down.png";
+import { collectionList } from "../../data/data";
 
 interface Props {
 	collection: string;
@@ -9,16 +10,8 @@ interface Props {
 
 export const Dropdown = ({ collection, setCollection }: Props) => {
 	const [isActive, setIsActive] = useState(false);
-	const collections = [
-		"Featured",
-		"Wallpapers",
-		"Nature",
-		"Textures & Patterns",
-		"Architecture",
-	];
 
 	let dropdownRef = useRef<HTMLDivElement>(null);
-
 	useEffect(() => {
 		document.addEventListener("mousedown", (event) => {
 			if (dropdownRef.current) {
@@ -40,7 +33,7 @@ export const Dropdown = ({ collection, setCollection }: Props) => {
 				<img src={chevronDown} alt="chevron-down" className="chevron-down" />
 			</div>
 			<div className={isActive ? "dropdown-content show" : "dropdown-content"}>
-				{collections.map((collection) => {
+				{collectionList.map((collection) => {
 					return (
 						<div
 							className="dropdown-item"
