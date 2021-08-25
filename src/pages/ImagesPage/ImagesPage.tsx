@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Redirect, RouteComponentProps } from "react-router-dom";
-import { Header } from "../../components/Header/Header";
+import Masonry from "react-masonry-css";
 import { fetchImages } from "../../API/api";
+import { collectionList } from "../../data/data";
+import { Header } from "../../components/Header/Header";
 import { Modal } from "../../components/Modal/Modal";
 import { Spinner } from "../../components/Spinner/Spinner";
-import Masonry from "react-masonry-css";
-import "./ImagesPage.scss";
 import { Pagination } from "../../components/Pagination/Pagination";
-import { collectionList } from "../../data/data";
+import "./ImagesPage.scss";
 
 interface Props
 	extends RouteComponentProps<{
@@ -16,7 +16,7 @@ interface Props
 		pageNumber: string;
 	}> {}
 
-export const ImagesPage: React.FC<Props> = ({ match }) => {
+export const ImagesPage = ({ match }: Props) => {
 	const [images, setImages] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [modalOpen, setModalOpen] = useState(true);
@@ -26,6 +26,7 @@ export const ImagesPage: React.FC<Props> = ({ match }) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			setIsLoading(true);
+
 			try {
 				const data = await fetchImages(
 					match.params.query,
@@ -37,16 +38,11 @@ export const ImagesPage: React.FC<Props> = ({ match }) => {
 			} catch (err) {
 				console.error(err);
 			}
+
 			setIsLoading(false);
 		};
 		fetchData();
 	}, [match.params.query, match.params.collection, match.params.pageNumber]);
-
-	const breakpointColumnsObj = {
-		default: 3,
-		980: 2,
-		500: 1,
-	};
 
 	if (!collectionList.includes(match.params.collection)) {
 		return <Redirect to="/notFound" />;
@@ -65,7 +61,11 @@ export const ImagesPage: React.FC<Props> = ({ match }) => {
 			{!isLoading && (
 				<div className="images-page-content">
 					<Masonry
-						breakpointCols={breakpointColumnsObj}
+						breakpointCols={{
+							default: 3,
+							980: 2,
+							500: 1,
+						}}
 						className="my-masonry-grid"
 						columnClassName="my-masonry-grid_column"
 					>

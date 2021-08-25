@@ -45,7 +45,7 @@ export const Modal = ({ open, setOpen, image }: Props) => {
 						className="modal-content-wrapper"
 						ref={modalRef}
 					>
-						<motion.div className="modal-content">
+						<div className="modal-content">
 							<motion.div
 								initial={{
 									opacity: 0,
@@ -94,7 +94,7 @@ export const Modal = ({ open, setOpen, image }: Props) => {
 									</button>
 								</div>
 							</div>
-						</motion.div>
+						</div>
 					</motion.div>
 				</motion.div>
 			)}

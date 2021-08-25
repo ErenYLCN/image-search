@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { ChameleonLogo } from "../../components/ChameleonLogo/ChameleonLogo";
 import { Dropdown } from "../../components/Dropdown/Dropdown";
 import "./LandingPage.scss";
-import { useHistory } from "react-router-dom";
 
 export const LandingPage = () => {
 	const history = useHistory();
-	const [collection, setCollection] = useState<string>("Collections");
+
+	const [collection, setCollection] = useState("Collections");
 	const [query, setQuery] = useState("");
 
 	return (
