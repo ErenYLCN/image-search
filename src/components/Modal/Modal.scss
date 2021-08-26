@@ -27,6 +27,18 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			position: relative;
+
+			.loading {
+				font-size: 2rem;
+				font-weight: 700;
+				color: var(--clr-neutral-300);
+				opacity: 0.3;
+				position: absolute;
+				top: 0%;
+				left: 50%;
+				transform: translate(-50%, -95%);
+			}
 
 			.img-container {
 				img {

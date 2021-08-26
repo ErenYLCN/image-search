@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect, RouteComponentProps } from "react-router-dom";
-import Masonry from "react-masonry-css";
 import { fetchImages } from "../../API/api";
 import { collectionList } from "../../data/data";
 import { Header } from "../../components/Header/Header";
+import Masonry from "react-masonry-css";
 import { Modal } from "../../components/Modal/Modal";
 import { Spinner } from "../../components/Spinner/Spinner";
 import { Pagination } from "../../components/Pagination/Pagination";
-import "./ImagesPage.scss";
 import { ErrorPage } from "../ErrorPage/ErrorPage";
+import "./ImagesPage.scss";
 
 interface Props
 	extends RouteComponentProps<{
@@ -34,7 +34,6 @@ export const ImagesPage = ({ match }: Props) => {
 				match.params.collection,
 				match.params.pageNumber
 			);
-			console.log(data);
 			if (data.message) {
 				setIsError(data.message);
 			} else {

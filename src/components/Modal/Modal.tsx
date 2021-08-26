@@ -13,6 +13,7 @@ interface Props {
 
 export const Modal = ({ open, setOpen, image }: Props) => {
 	const [isLoading, setIsLoading] = useState(true);
+	const [imageLoaded, setImageLoaded] = useState(false);
 	const [imageDetails, setImageDetails] = useState<any>(undefined);
 	const [isError, setIsError] = useState(undefined);
 	let modalRef = useRef<HTMLDivElement>(null);
@@ -21,7 +22,6 @@ export const Modal = ({ open, setOpen, image }: Props) => {
 		if (open) {
 			const fetchData = async () => {
 				setIsLoading(true);
-				console.log(image.id);
 
 				const data = await getImageDetails(image.id);
 				if (data.message) {
@@ -32,15 +32,11 @@ export const Modal = ({ open, setOpen, image }: Props) => {
 					setImageDetails(data.data);
 					setIsError(undefined);
 				}
+				setIsLoading(false);
 			};
 			fetchData();
 		}
 	}, [open]);
-
-	useEffect(() => {
-		setIsLoading(false);
-		console.log(imageDetails);
-	}, [imageDetails]);
 
 	useEffect(() => {
 		document.addEventListener("mousedown", (event) => {
@@ -48,6 +44,7 @@ export const Modal = ({ open, setOpen, image }: Props) => {
 				if (!modalRef.current.contains(event.target as Node)) {
 					setImageDetails(undefined);
 					setOpen(false);
+					setImageLoaded(false);
 				}
 			}
 		});
@@ -90,7 +87,12 @@ export const Modal = ({ open, setOpen, image }: Props) => {
 								}}
 								className="img-container"
 							>
-								<img src={image.urls.full} alt={image["alt_description"]} />
+								{!imageLoaded && <div className="loading">Loading...</div>}
+								<img
+									src={image.urls.full}
+									alt={image["alt_description"]}
+									onLoad={() => setImageLoaded(true)}
+								/>
 								{imageDetails && imageDetails.location.title && (
 									<div className="location-info">
 										<img src={union} alt="union" className="union-icon" />

@@ -11,13 +11,13 @@
 
 @media (min-width: 650px) {
 	.images-page-content {
-		padding: 11.325em 0 0 0;
+		padding: 11.325em 1em 0 1em;
 	}
 }
 
 @media (min-width: 980px) {
 	.images-page-content {
-		padding: 11.325em 0 0 0;
+		padding: 11.325em 1em 0 1em;
 		width: 970px;
 		margin: auto;
 	}
@@ -25,7 +25,6 @@
 
 .image-container {
 	transition: all 0.15s ease-in-out;
-	margin: auto;
 
 	img {
 		transition: all 0.2s ease-in-out;
@@ -41,12 +40,12 @@
 }
 
 .loading {
-	color: black;
 	padding-top: 30vh;
 	display: flex;
 	justify-content: center;
 }
 
+/* Masonry setup */
 .my-masonry-grid {
 	display: -webkit-box; /* Not needed if autoprefixing */
 	display: -ms-flexbox; /* Not needed if autoprefixing */

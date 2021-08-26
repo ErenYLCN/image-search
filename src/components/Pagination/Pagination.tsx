@@ -38,9 +38,11 @@ export const Pagination = ({
 			>
 				Previous
 			</button>
+
 			<div className="pagination-number">
 				{currentPage} of {totalPages}
 			</div>
+
 			<button
 				disabled={parseInt(currentPage) === totalPages}
 				className="pagination-button"

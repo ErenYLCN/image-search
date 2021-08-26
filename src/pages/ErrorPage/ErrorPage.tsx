@@ -8,15 +8,13 @@ interface Props {
 
 export const ErrorPage = ({ msg }: Props) => {
 	return (
-		<div>
+		<>
 			<Header />
 			<div className="error-content">
 				<div className="error">
-					<span className="error-msg">
-						{msg} {":("}
-					</span>
+					{msg} {":("}
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
