@@ -8,6 +8,7 @@ import { Modal } from "../../components/Modal/Modal";
 import { Spinner } from "../../components/Spinner/Spinner";
 import { Pagination } from "../../components/Pagination/Pagination";
 import "./ImagesPage.scss";
+import { ErrorPage } from "../ErrorPage/ErrorPage";
 
 interface Props
 	extends RouteComponentProps<{
@@ -22,27 +23,34 @@ export const ImagesPage = ({ match }: Props) => {
 	const [modalOpen, setModalOpen] = useState(true);
 	const [chosenImage, setChosenImage] = useState(undefined);
 	const [totalPages, setTotalPages] = useState(1);
+	const [isError, setIsError] = useState(undefined);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			setIsLoading(true);
 
-			try {
-				const data = await fetchImages(
-					match.params.query,
-					match.params.collection,
-					match.params.pageNumber
-				);
+			const data = await fetchImages(
+				match.params.query,
+				match.params.collection,
+				match.params.pageNumber
+			);
+			console.log(data);
+			if (data.message) {
+				setIsError(data.message);
+			} else {
 				setTotalPages(data["total_pages"]);
 				setImages(data.results);
-			} catch (err) {
-				console.error(err);
 			}
 
 			setIsLoading(false);
 		};
+
 		fetchData();
 	}, [match.params.query, match.params.collection, match.params.pageNumber]);
+
+	if (isError) {
+		return <ErrorPage msg={isError} />;
+	}
 
 	if (!collectionList.includes(match.params.collection)) {
 		return <Redirect to="/notFound" />;

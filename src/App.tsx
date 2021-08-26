@@ -15,7 +15,12 @@ function App() {
 					path="/images/:query/:collection/:pageNumber(\d+)"
 					component={ImagesPage}
 				/>
-				<Route path="/" component={ErrorPage} />
+				<Route
+					path="/"
+					render={() => (
+						<ErrorPage msg="404, Could not find what you are looking for" />
+					)}
+				/>
 			</Switch>
 		</Router>
 	);
